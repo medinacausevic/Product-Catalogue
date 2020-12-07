@@ -25,6 +25,6 @@ namespace ProductCatalogue.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
     }
 }

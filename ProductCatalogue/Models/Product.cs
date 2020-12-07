@@ -20,6 +20,6 @@ namespace ProductCatalogue.Models
         public string Category { get; set; }
         public string Manufacturer { get; set; }
         public string Supplier { get; set; }
-        public decimal Price { get; set; }
+        public Nullable<double> Price { get; set; }
     }
 }
