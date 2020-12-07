@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -83,13 +83,5 @@ namespace ProductCatalogue.Controllers
             return View(product);
         }
 
-        public ActionResult GetData()
-        {
-            using (ProductEntities db = new ProductEntities())
-            {
-                List<Product> productList = db.Product.ToList();
-                return Json(new { data = productList }, JsonRequestBehavior.AllowGet);
-            }
-        }
     }
 }

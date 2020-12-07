@@ -3,8 +3,15 @@
 @{
     ViewBag.Title = "Create";
 }
+<style>
+    .required {
+        color: red;
+        font-weight: bold;
+        padding-left: 3px
+    }
+</style>
 
-<h2>Create</h2>
+<h4>Create</h4>
 
 
 @using (Html.BeginForm()) 
@@ -17,7 +24,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class = "control-label col-md-2">Name<span class="required">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -25,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Description</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
@@ -33,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Category<span class="required">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
@@ -41,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Manufacturer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Manufacturer<span class="required">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Manufacturer, "", new { @class = "text-danger" })
@@ -49,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Supplier, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Supplier</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Supplier, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Supplier, "", new { @class = "text-danger" })
@@ -57,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Price</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
@@ -66,7 +73,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-info" />
             </div>
         </div>
     </div>
