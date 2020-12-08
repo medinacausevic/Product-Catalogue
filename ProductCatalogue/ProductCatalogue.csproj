@@ -135,9 +135,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ProductsJSONController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="JSON\ReadWriteJSON.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Product.Context.cs">
       <AutoGen>True</AutoGen>
@@ -187,6 +189,7 @@
     <Content Include="Models\Product.edmx.diagram">
       <DependentUpon>Product.edmx</DependentUpon>
     </Content>
+    <Content Include="JSON\Products.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -212,6 +215,9 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\ProductsJSON\Create.cshtml" />
+    <Content Include="Views\ProductsJSON\Index.cshtml" />
+    <Content Include="Views\ProductsJSON\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

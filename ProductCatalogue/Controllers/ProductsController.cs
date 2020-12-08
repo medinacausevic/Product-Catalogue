@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using ProductCatalogue.Models;
 
@@ -15,12 +12,15 @@ namespace ProductCatalogue.Controllers
     {
         private ProductEntities db = new ProductEntities();
 
-        // GET: Products
+        #region DB actions
+        // GET: Products from DB
         public async Task<ActionResult> Index()
         {
-            return View(await db.Product.ToListAsync());
+            return View(await db.Product.OrderBy(p => p.Name).ToListAsync());
         }
 
+
+        // Create actions
         public ActionResult Create()
         {
             return View();
@@ -36,7 +36,8 @@ namespace ProductCatalogue.Controllers
                 {
                     db.Product.Add(product);
                     await db.SaveChangesAsync();
-                    return RedirectToAction("Index", db.Product.ToList());
+
+                    return RedirectToAction("Index", db.Product.OrderBy(p => p.Name).ToList());
                 }
             }
             catch (RetryLimitExceededException)
@@ -47,6 +48,8 @@ namespace ProductCatalogue.Controllers
             return View(product);
         }
 
+
+        //Edit actions
         public async Task<ActionResult> Edit(int? id)
         {
             if(id == null)
@@ -72,7 +75,7 @@ namespace ProductCatalogue.Controllers
                 {
                     db.Entry(product).State = EntityState.Modified;
                     await db.SaveChangesAsync();
-                    return RedirectToAction("Index", db.Product.ToList());
+                    return RedirectToAction("Index", db.Product.OrderBy(p => p.Name).ToList());
                 }
             }
             catch (RetryLimitExceededException)
@@ -82,6 +85,8 @@ namespace ProductCatalogue.Controllers
 
             return View(product);
         }
+        #endregion
+
 
     }
 }
